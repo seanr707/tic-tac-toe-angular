@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play Tic-Tac-Toe!</title>
+
+
+    
+    
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <!-- Beginning of Angular App and Controller -->
+<div ng-app="ttt" ng-controller="ctrl">
+  <!-- Popup for Choice -->
+  <div class="blanket" ng-hide="choice">
+    <div class="popup choice">
+      <h2 class="pop-header">Choose X's or O's</h2>
+      <button module="button" class='btn btn-primary' ng-repeat="letter in letters" ng-click="choose(letter)">{{ letter }}</button>
+    </div>
+  </div>
+  <!-- Popup for Win/Loss -->
+  <div class="blanket" ng-show="win">
+    <div class="popup choice">
+      <h2 class="pop-header">{{ message }}</h2>
+      <button module="button" class='btn btn-danger' ng-click="reset()">Reset Now</button>
+      <h4>Or wait... {{ time }}</h4>
+    </div>
+  </div>
+  <h1 class="text-center title">Tic - Tac - Toe</h1>
+  <!-- Body of game -->
+  <div class="game">
+    <!-- Each row creates 3 buttons -->
+    <!-- Used aRow to not conflict w/ Bootstrap 'row' -->
+    <div class="top aRow">
+      <!-- Owner included to change color of X and O -->
+      <button class="block {{ item.owner }}" ng-repeat="item in top" ng-click="add(item.name, 'top', human)">
+        <p>{{ item.val }}</p>
+      </button>
+    </div>
+    <div class="mid aRow">
+      <button class="block {{ item.owner }}" ng-repeat="item in mid" ng-click="add(item.name, 'mid', human)">
+        <p>{{ item.val }}</p>
+      </button>
+    </div>
+    <div class="bottom aRow">
+      <button class="block {{ item.owner }}" ng-repeat="item in bottom" ng-click="add(item.name, 'bottom', human)">
+        <p>{{ item.val }}</p>
+      </button>
+    </div>
+  </div>
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
